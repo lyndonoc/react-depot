@@ -1,0 +1,44 @@
+.amped-checkbox-list {
+  @import 'materialize-css/sass/components/forms/_checkboxes.scss';
+
+  [type="checkbox"] + span:not(.lever),
+  [type="radio"]:not(:checked) + span, [type="radio"]:checked + span{
+    @include label;
+  }
+
+  &__group {
+    display: flex;
+
+    &--horizontal {
+      flex-direction: row;
+
+    }
+
+    &--vertical {
+      flex-direction: column;
+      .amped-checkbox-list__group__item {
+        &:last-child{
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    &__item {
+      padding: 0 $gutter/2 $gutter/2 0;
+    }
+  }
+
+  &__group-label {
+    padding-bottom: $gutter/2;
+    font-size: 1rem;
+  }
+
+  [type="checkbox"].filled-in:checked + span:not(.lever):before{
+    left: 0 !important;
+  }
+
+  input[type="checkbox"]:focus + span:after,
+  input[type="radio"]:focus + span:before{
+    border-color: $secondary-color !important;
+  }
+}
