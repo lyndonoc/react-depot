@@ -1,27 +1,30 @@
-import Checkbox from '../components/form-components/checkbox';
-import Number from '../components/form-components/number';
-import Radio from '../components/form-components/radio';
-import Select from '../components/form-components/select';
-import Switch from '../components/form-components/switch';
-import Textarea from '../components/form-components/textarea';
-import TextField from '../components/form-components/textfield';
-import Button from '../components/form-components/button';
+import {
+  ContractorButton,
+  ContractorCheckbox,
+  ContractorRadio,
+  ContractorSelect,
+  ContractorSubmit,
+  ContractorSwitch,
+  ContractorTextArea,
+  ContractorTextField,
+  ContractorNumber,
+} from '../components/form-components';
 
 export default {
   button: {
-    component: Button,
+    component: ContractorButton,
     noValue: true,
   },
   checkbox: {
-    component: Checkbox,
+    component: ContractorCheckbox,
     defaultValue: [],
   },
   number: {
-    component: Number,
+    component: ContractorNumber,
     defaultValue: 0,
   },
   radio: {
-    component: Radio,
+    component: ContractorRadio,
     defaultValue: (field) => {
       return Array.isArray(field.options)
         ? (field.options[0] || {}).value || ''
@@ -29,23 +32,27 @@ export default {
     }
   },
   select: {
-    component: Select,
+    component: ContractorSelect,
     defaultValue: (field) => {
       return Array.isArray(field.options)
         ? (field.options[0] || {}).value || ''
         : '';
     },
   },
+  submit: {
+    component: ContractorSubmit,
+    noValue: true,
+  },
   switch: {
-    component: Switch,
+    component: ContractorSwitch,
     defaultValue: false,
   },
   textarea: {
-    component: Textarea,
+    component: ContractorTextArea,
     defaultValue: '',
   },
-  text: {
-    component: TextField,
+  textfield: {
+    component: ContractorTextField,
     defaultValue: '',
   },
 };

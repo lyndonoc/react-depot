@@ -1,8 +1,21 @@
-export { default as Button } from './button';
-export { default as Checkbox } from './checkbox';
-export { default as Header } from './header';
-export { default as Number } from './number';
-export { default as Radio } from './radio';
-export { default as Switch } from './switch';
-export { default as Textarea } from './textarea';
-export { default as TextField } from './textfield';
+import ContractorButton from './contractor-button';
+import ContractorCheckbox from './contractor-checkbox';
+import ContractorNumber from './contractor-number';
+import ContractorRadio from './contractor-radio';
+import ContractorSelect from './contractor-select';
+import ContractorSubmit from './contractor-submit';
+import ContractorSwitch from './contractor-switch';
+import ContractorTextArea from './contractor-textarea';
+import ContractorTextField from './contractor-textfield';
+
+export {
+  ContractorButton,
+  ContractorCheckbox,
+  ContractorNumber,
+  ContractorRadio,
+  ContractorSelect,
+  ContractorSubmit,
+  ContractorSwitch,
+  ContractorTextArea,
+  ContractorTextField,
+}

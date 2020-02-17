@@ -15,6 +15,7 @@ const FormContractorField = ({
   formFieldData,
   formValues,
   formRowData,
+  identifier,
   onChange,
   onRowDataChange,
 }) => {
@@ -24,7 +25,6 @@ const FormContractorField = ({
     return null;
   }
 
-  const FieldComponent = componentMap.component;
   const handleFieldChange = (fieldValue) => {
     onChange(formFieldData.name, fieldValue);
   };
@@ -32,9 +32,10 @@ const FormContractorField = ({
     onRowDataChange(newRowData);
   };
 
+  const FieldComponent = componentMap.component;
   const fieldProps = {
     disabled: Boolean(formFieldData.disabled),
-    id: `form-item-${formFieldData.name}`,
+    identifier,
     label: formFieldData.label,
     name: formFieldData.name,
     value: formValues && formValues.hasOwnProperty(formFieldData.name)
@@ -42,13 +43,13 @@ const FormContractorField = ({
         ? formValues[formFieldData.name].toString()
         : formValues[formFieldData.name])
       : '',
-    onChange: handleFieldChange,
-    onRowDataChange: handleRowDataChange,
     ...(formFieldData.props || {}),
     ...(componentMap.props || {}),
     ...(formFieldData.options && {
       options: formFieldData.options,
     }),
+    onChange: handleFieldChange,
+    onRowDataChange: handleRowDataChange,
   };
 
   return (
@@ -63,24 +64,22 @@ const FormContractorField = ({
 
 FormContractorField.propTypes = {
   componentsMap: formComponentMapShape,
-  fieldIndex: PropTypes.number,
   formData: formDataShape,
   formFieldData: formFieldShape,
   formValues: PropTypes.object,
   formRowData: formFieldDataShape,
-  isArray: PropTypes.bool,
+  identifier: PropTypes.string,
   onChange: PropTypes.func,
   onRowDataChange: PropTypes.func,
 };
 
 FormContractorField.defaultProps = {
   componentsMap: {},
-  fieldIndex: 0,
   formData: [],
   formFieldData: {},
   formValues: {},
   formRowData: {},
-  isArray: false,
+  identifier: '',
   onChange: () => {},
   onRowDataChange: () => {},
 };

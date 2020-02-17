@@ -1,30 +1,35 @@
-import classNames from 'classnames';
+import ClassNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const checkedCompare = (type, value, optionValue) => {
+import './style.scss';
+
+const compareChecker = (type, value, optionValue) => {
   if (typeof value === 'string') {
     return value === optionValue;
   }
+
   if (type === 'checkbox') {
     return value.find((v) => v === optionValue);
   }
+
   return optionValue === value;
 };
 
-const CheckboxList = ({
+const ContractorCheckbox = ({
   disabled,
+  identifier,
   inputType,
   label,
   name,
   options,
-  orientation,
   value,
   onChange
 }) => {
-
   const handleChange = (e) => {
-    const { value: inputValue } = e.target;
+    const {
+      value: inputValue,
+    } = e.target;
 
     if (inputType === 'radio') {
       return onChange(inputValue);
@@ -37,42 +42,49 @@ const CheckboxList = ({
       onChange([
         ...value.slice(0, valIndex),
         ...value.slice(valIndex + 1),
-      ])
+      ]);
     }
   };
 
-  const handleKeyDown = (evt) => {
-    if (evt.which === 13) {
-      handleChange(evt);
-    }
-  };
-
-  const groupClasses = classNames(
-    'amped-checkbox-list__group',
-    `amped-checkbox-list__group--${orientation}`,
-    `amped-checkbox-list__group--${options.length}`,
+  const containerClassNames = ClassNames(
+    'contractor-checkbox',
+    {
+      'contractor-checkbox--disabled': disabled,
+    },
   );
 
   return (
-    <div className="amped-checkbox-list">
-      {label && <div className="amped-checkbox-list__group-label">{label}</div>}
-      <div className={groupClasses}>
-        {options.map((option, i) => {
-          const id = `checkbox-${name}-${i}`;
+    <div className={containerClassNames}>
+      {label && (
+        <div
+          className="contractor-checkbox__group-label"
+        >
+          {label}
+        </div>
+      )}
+      <div className="contractor-checkbox__list">
+        {options.map((option, optionIndex) => {
+          const id = `contractor-checkbox__item--${identifier}--${optionIndex}`;
+
           return (
-            <label className='amped-checkbox-list__group__item' htmlFor={id} key={i}>
+            <label
+              className='contractor-checkbox__group__item'
+              htmlFor={id}
+              key={id}
+            >
               <input
-                className="filled-in with-gap"
-                checked={checkedCompare(inputType, value, option.value)}
+                className="contractor-checkbox__group__item--input"
+                checked={compareChecker(inputType, value, option.value)}
                 disabled={disabled}
                 id={id}
                 name={name}
                 type={inputType}
                 value={option.value}
                 onChange={handleChange}
-                onKeyDown={handleKeyDown}
               />
-              <span>{option.label}</span>
+              <span className="contractor-checkbox__group__item--text">
+                {option.label}
+              </span>
             </label>
           );
         })}
@@ -81,8 +93,9 @@ const CheckboxList = ({
   );
 };
 
-CheckboxList.propTypes = {
+ContractorCheckbox.propTypes = {
   disabled: PropTypes.bool,
+  identifier: PropTypes.string,
   inputType: PropTypes.oneOf([
     'checkbox',
     'radio',
@@ -93,26 +106,22 @@ CheckboxList.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.any.isRequired
   })),
-  orientation: PropTypes.oneOf([
-    'horizontal',
-    'vertical',
-  ]),
   value: PropTypes.oneOfType([
     PropTypes.array,
-    PropTypes.string
+    PropTypes.string,
   ]),
   onChange: PropTypes.func
 };
 
-CheckboxList.defaultProps = {
+ContractorCheckbox.defaultProps = {
   disabled: false,
+  identifier: '',
   inputType: 'checkbox',
   label: '',
   name: '',
   options: [],
-  orientation: 'vertical',
   value: [],
-  onChange: () => {}
+  onChange: () => {},
 };
 
-export default CheckboxList;
+export default ContractorCheckbox;

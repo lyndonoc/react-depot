@@ -15,23 +15,12 @@ const FormRowGroup = ({
   formData,
   formFieldData,
   formValues,
+  name,
   onChange,
   onRowDataChange,
 }) => {
   const handleChange = useCallback(
     (name, value) => {
-      console.log("asdjkldasjkldasjkl - row", {
-        name,
-        value,
-        formValues,
-        formFieldData,
-        finalData: formFieldData.name
-          ? {
-            ...formValues,
-            [name]: value,
-          }
-          : value,
-      });
       onChange(
         formFieldData.name || name,
         formFieldData.name
@@ -50,7 +39,7 @@ const FormRowGroup = ({
   );
 
   return (
-    <fieldset>
+    <fieldset className={`contractor-group--${name}`}>
       <legend>{formFieldData.label}</legend>
       {formFieldData.fields.map((field) => {
         return (
@@ -61,6 +50,7 @@ const FormRowGroup = ({
             formFieldData={field}
             formValues={formValues}
             formRowData={formFieldData}
+            name={`${name}.${field.name}`}
             onChange={handleChange}
             onRowDataChange={onRowDataChange}
           />
@@ -76,6 +66,7 @@ FormRowGroup.propTypes = {
   formFieldData: formFieldDataShape,
   formValues: PropTypes.object,
   formRowData: formFieldDataShape,
+  name: PropTypes.string,
   onChange: PropTypes.func,
   onRowDataChange: PropTypes.func,
 };
@@ -86,10 +77,9 @@ FormRowGroup.defaultProps = {
   formFieldData: {},
   formValues: {},
   formRowData: {},
-  onChange: () => {
-  },
-  onRowDataChange: () => {
-  },
+  name: '',
+  onChange: () => {},
+  onRowDataChange: () => {},
 };
 
 export default FormRowGroup;

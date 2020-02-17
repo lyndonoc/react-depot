@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
 
-const formLabelShape = PropTypes
-  .oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string),
-  ])
-  .isRequired;
+export const formLabelShape = PropTypes.oneOfType([
+  PropTypes.string,
+  PropTypes.arrayOf(PropTypes.string),
+]);
 
-const formValueShape = PropTypes.oneOfType([
+export const formValueShape = PropTypes.oneOfType([
   PropTypes.array,
   PropTypes.bool,
   PropTypes.number,
@@ -15,8 +13,9 @@ const formValueShape = PropTypes.oneOfType([
   PropTypes.string,
 ]);
 
-const formBaseFieldShape = {
+export const formBaseFieldShape = {
   defaultValue: formValueShape,
+  disabled: PropTypes.bool,
   label: formLabelShape,
   name: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.shape({

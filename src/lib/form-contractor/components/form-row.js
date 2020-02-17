@@ -8,7 +8,6 @@ import {
   formDataShape,
   formFieldDataShape
 } from '../constants/shapes';
-import FormArrayGroup from './form-array-group';
 
 const FormContractorRow = ({
   componentsMap,
@@ -16,6 +15,7 @@ const FormContractorRow = ({
   formFieldData,
   formValues,
   formRowData,
+  name,
   onChange,
   onRowDataChange
 }) => {
@@ -50,34 +50,24 @@ const FormContractorRow = ({
         formFieldData={formFieldData}
         formValues={formValues}
         formRowData={formRowData}
+        identifier={name}
         onChange={onChange}
         onRowDataChange={onRowDataChange}
       />
     )
-    : Array.isArray(formFieldData.fields) && Boolean(formFieldData.fields.length)
-      ? formFieldData.isArray ? (
-        <FormArrayGroup
-          componentsMap={componentsMap}
-          formData={formData}
-          formFieldData={formFieldData}
-          formValues={formFieldData.name
-            ? formValues[formFieldData.name]
-            : formValues
-          }
-          formRowData={formFieldData}
-          onChange={onChange}
-          onRowDataChange={handleRowDataChange}
-        />
-      ) : (
+    : Array.isArray(formFieldData.fields) && formFieldData.fields.length > 0
+      ? (
         <FormRowGroup
           componentsMap={componentsMap}
           formData={formData}
           formFieldData={formFieldData}
-          formValues={formFieldData.name
-            ? formValues[formFieldData.name]
-            : formValues
+          formValues={
+            formFieldData.name
+              ? formValues[formFieldData.name]
+              : formValues
           }
           formRowData={formFieldData}
+          name={name}
           onChange={onChange}
           onRowDataChange={handleRowDataChange}
         />
@@ -91,6 +81,7 @@ FormContractorRow.propTypes = {
   formFieldData: formFieldDataShape,
   formValues: PropTypes.object,
   formRowData: formFieldDataShape,
+  name: PropTypes.string,
   onChange: PropTypes.func,
   onRowDataChange: PropTypes.func
 };
@@ -101,10 +92,9 @@ FormContractorRow.defaultProps = {
   formFieldData: {},
   formValues: {},
   formRowData: {},
-  onChange: () => {
-  },
-  onRowDataChange: () => {
-  }
+  name: '',
+  onChange: () => {},
+  onRowDataChange: () => {}
 };
 
 export default FormContractorRow;

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Button = ({
+const ContractorButton = ({
   children,
   className,
   onClick,
@@ -30,7 +30,7 @@ const Button = ({
   );
 };
 
-Button.propTypes = {
+ContractorButton.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.string
@@ -38,9 +38,9 @@ Button.propTypes = {
   onClick: PropTypes.func
 };
 
-Button.defaultProps = {
+ContractorButton.defaultProps = {
   children: 'Button',
   onClick: () => {}
 };
 
-export default Button;
+export default ContractorButton;

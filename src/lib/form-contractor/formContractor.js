@@ -17,7 +17,6 @@ import {
   generateFormValues,
   sanitizeFormData,
 } from './lib/data-utils';
-import FormContractorArray from './components/form-array';
 
 const FormContractor = ({
   classNames,
@@ -85,6 +84,7 @@ const FormContractor = ({
 
   useEffect(
     () => {
+      // TODO: maybe generate new form values on formData change?
       const newFormData = sanitizeFormData(formData);
       setFormData(newFormData);
     },
@@ -121,7 +121,6 @@ const FormContractor = ({
 
       setFormData(newFormData);
       onFormDataChange(newFormData);
-
     },
     [
       _formData,
@@ -162,6 +161,7 @@ const FormContractor = ({
             key={field.name}
             formFieldData={field}
             formRowData={field}
+            name={field.name}
           />
         );
       })}
@@ -187,12 +187,9 @@ FormContractor.defaultProps = {
   componentsMap: {},
   emitChangeOnLoad: false,
   formData: [],
-  onChange: () => {
-  },
-  onFormDataChange: () => {
-  },
-  onSubmit: () => {
-  },
+  onChange: () => {},
+  onFormDataChange: () => {},
+  onSubmit: () => {},
 };
 
 export default FormContractor;

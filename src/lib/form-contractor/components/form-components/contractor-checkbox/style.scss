@@ -1,0 +1,62 @@
+@import '../../../styles/variables';
+
+$box-size: $form-item-height / 1.5;
+
+.contractor-checkbox {
+  &__group {
+    &__item {
+      &--input {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        &:not(:checked) {
+          & + .contractor-checkbox__group__item--text {
+            &:after {
+              background-color: transparent;
+              border: 1px solid #5a5a5a;
+              border-radius: $box-size / 2;
+              height: $box-size;
+              width: $box-size;
+              z-index: 0;
+            }
+          }
+        }
+        &:checked {
+          & + .contractor-checkbox__group__item--text {
+            &:after {
+              border: 1px solid $theme-color;
+              border-radius: $box-size / 2;
+              height: $box-size;
+              width: $box-size;
+              z-index: 0;
+            }
+            &:before {
+              background-color: $theme-color;
+              border-radius: $box-size / 2;
+              height: $box-size - 4;
+              left: 3px;
+              width: $box-size - 4;
+            }
+          }
+        }
+      }
+      &--text {
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        height: $form-item-height;
+        line-height: $form-item-height;
+        padding-left: $form-item-height;
+        position: relative;
+        user-select: none;
+        &:after,
+        &:before {
+          content: '';
+          left: 0;
+          position: absolute;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}

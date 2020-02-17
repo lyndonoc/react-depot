@@ -1,14 +1,11 @@
 import JSONEditor from 'react-json-editor-ajrm';
-import React, {
-  useState,
-} from 'react';
+import React, { useState } from 'react';
+import locale from 'react-json-editor-ajrm/locale/en';
 
 import FormContractor from '../lib/form-contractor';
 import HammerIcon from './components/hammer';
 import Octocat from './components/octocat';
-import defaultComponentsMap from '../lib/form-contractor/constants/defaultComponentsMap';
-import { formData } from '../lib/form-contractor/formData';
-import { isFormDataValid } from '../lib/form-contractor/lib/data-validator';
+import { formData } from './constants/formData';
 
 import './App.scss';
 
@@ -29,7 +26,6 @@ const App = () => {
     setFormValues(event);
   };
 
-  isFormDataValid(_formData, defaultComponentsMap);
   return (
     <div className="form-contractor-demo__container">
       <div className="form-contractor-demo__header__wrapper">
@@ -51,10 +47,11 @@ const App = () => {
         <section className="form-contractor-demo__section">
           <h3>1) Provide form data in JSON</h3>
           <JSONEditor
-            id="form-contractor-demo__editor"
             height="100%"
-            width="100%"
+            id="form-contractor-demo__editor"
+            locale={locale}
             placeholder={_formData}
+            width="100%"
             onChange={handleEditorChange}
           />
         </section>
@@ -70,11 +67,12 @@ const App = () => {
         <section className="form-contractor-demo__section">
           <h3>3) Check out the dynamically generated value</h3>
           <JSONEditor
-            id="form-contractor-demo__viewer"
             height="100%"
-            width="100%"
-            viewOnly
+            id="form-contractor-demo__viewer"
+            locale={locale}
             placeholder={formValues}
+            viewOnly
+            width="100%"
           />
         </section>
       </div>

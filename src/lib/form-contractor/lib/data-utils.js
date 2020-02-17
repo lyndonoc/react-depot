@@ -1,32 +1,6 @@
-export const generateFormArrayData = (
-  formGroupFields = [],
-  componentsMap = {},
-  arrayDataGenerator = generateFormArrayData,
-  groupDataGenerator = generateFormGroupData,
-  defaultGetter = getDefaultFieldValue,
-) => {
-  return formGroupFields.reduce(
-    (acc, curr) => {
-      const noValue = componentsMap[curr.type] && componentsMap[curr.type].noValue;
-      const _curr = curr.isArray
-        ? {
-          ...(!noValue && {
-            [curr.name]: arrayDataGenerator(curr.fields, componentsMap),
-          }),
-        }
-        : Array.isArray(curr.fields)
-          ? groupDataGenerator(curr.fields, componentsMap)
-          : defaultGetter(curr, componentsMap);
-      return acc.concat(_curr);
-    },
-    []
-  );
-};
-
 export const generateFormGroupData = (
   formGroupFields = [],
   componentsMap = {},
-  arrayDataGenerator = generateFormArrayData,
   groupDataGenerator = generateFormGroupData,
   defaultGetter = getDefaultFieldValue,
 ) => {
@@ -37,9 +11,7 @@ export const generateFormGroupData = (
         ...acc,
         ...(!noValue && {
           [curr.name]: Array.isArray(curr.fields)
-            ? curr.isArray
-              ? arrayDataGenerator(curr.fields, componentsMap)
-              : groupDataGenerator(curr.fields, componentsMap)
+            ? groupDataGenerator(curr.fields, componentsMap)
             : defaultGetter(curr, componentsMap),
         }),
       };

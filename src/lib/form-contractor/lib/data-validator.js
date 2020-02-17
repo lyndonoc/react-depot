@@ -21,6 +21,7 @@ export const isFormDataValid = (formData, componentsMap) => {
 
 export const isFormRowValid = (row = {}, componentsMap = {}) => {
   const allowed = [
+    'defaultValue',
     'disabled',
     'label',
     'name',
@@ -31,7 +32,7 @@ export const isFormRowValid = (row = {}, componentsMap = {}) => {
   const keys = Object.keys(row);
 
   if (keys.length < 1) {
-    invalidLog('an item in formData is an empty object.');
+    invalidLog('one of the items in formData is an empty object.');
     return false;
   }
 
@@ -47,10 +48,11 @@ export const isFormRowValid = (row = {}, componentsMap = {}) => {
       invalidLog(`items in formData can only have either 'fields' or 'type' field, not both.`);
       return false;
     }
-    if (row.hasOwnProperty('validator')) {
-      invalidLog(`items in formData can only have either 'fields' or 'validator' field, not both.`);
-      return false;
-    }
+    // TODO: put this back
+    // if (row.hasOwnProperty('validator')) {
+    //   invalidLog(`items in formData can only have either 'fields' or 'validator' field, not both.`);
+    //   return false;
+    // }
   }
 
   if (
@@ -64,10 +66,11 @@ export const isFormRowValid = (row = {}, componentsMap = {}) => {
     return false;
   }
 
-  if (row.hasOwnProperty('validator') && typeof row.validator !== 'function') {
-    invalidLog('validator must be a function.');
-    return false;
-  }
+  // TODO: put this back
+  // if (row.hasOwnProperty('validator') && typeof row.validator !== 'function') {
+  //   invalidLog('validator must be a function.');
+  //   return false;
+  // }
 
   if (row.hasOwnProperty('type') && !componentsMap.hasOwnProperty(row.type)) {
     invalidLog(`no component provided for ${row.type}.`);
