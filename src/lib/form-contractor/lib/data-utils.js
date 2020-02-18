@@ -58,6 +58,7 @@ export const getDefaultValueFromComponentMap = (
   field,
   componentsMap,
 ) => {
+  console.log({ field, componentsMap });
   const defaultValue = componentsMap[field.type].defaultValue;
 
   return typeof defaultValue === 'function'

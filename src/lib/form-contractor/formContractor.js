@@ -17,6 +17,7 @@ import {
   generateFormValues,
   sanitizeFormData,
 } from './lib/data-utils';
+import { isFormDataValid } from './lib/data-validator';
 
 const FormContractor = ({
   classNames,
@@ -67,7 +68,11 @@ const FormContractor = ({
   const [
     _formData,
     setFormData,
-  ] = useState(sanitizeFormData(formData));
+  ] = useState(sanitizeFormData(
+    isFormDataValid(formData, _componentsMap)
+      ? formData
+      : [],
+  ));
   const [
     formValues,
     setFormValues,
@@ -84,11 +89,14 @@ const FormContractor = ({
 
   useEffect(
     () => {
-      // TODO: maybe generate new form values on formData change?
-      const newFormData = sanitizeFormData(formData);
-      setFormData(newFormData);
+      setFormData(sanitizeFormData(
+        isFormDataValid(formData, _componentsMap)
+          ? formData
+          : [],
+      ));
     },
     [
+      _componentsMap,
       formData,
     ],
   );

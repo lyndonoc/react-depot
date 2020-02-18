@@ -77,12 +77,12 @@ export const isFormRowValid = (row = {}, componentsMap = {}) => {
     return false;
   }
 
-  if (row.hasOwnProperty('fields') && !Array.isArray(row.fields)) {
+  if (!Array.isArray(row.fields)) {
     invalidLog('\'fields\' must be an array.');
     return false;
   }
 
-  for (let i = 0; i < row.fields; i++) {
+  for (let i = 0; i < row.fields.length; i++) {
     const isFieldsValid = isFormRowValid(row.fields[i], componentsMap);
 
     if (!isFieldsValid) {
