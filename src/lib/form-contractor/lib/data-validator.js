@@ -1,7 +1,12 @@
-export const isFormDataValid = (formData, componentsMap) => {
+export const isFormDataValid = (
+  formData,
+  componentsMap,
+  rowValidator = isFormDataValid,
+) => {
   if (
     !formData ||
     !Array.isArray(formData) ||
+    formData.length < 1 ||
     formData.filter((data) => typeof data !== 'object').length > 0
   ) {
     invalidLog('formData must be an array of objects.');
@@ -9,7 +14,7 @@ export const isFormDataValid = (formData, componentsMap) => {
   }
 
   for (let i = 0; i < formData.length; i++) {
-    const isDataValid = isFormRowValid(formData[i], componentsMap);
+    const isDataValid = rowValidator(formData[i], componentsMap);
 
     if (!isDataValid) {
       return false;
@@ -19,7 +24,11 @@ export const isFormDataValid = (formData, componentsMap) => {
   return true;
 };
 
-export const isFormRowValid = (row = {}, componentsMap = {}) => {
+export const isFormRowValid = (
+  row = {},
+  componentsMap = {},
+  rowValidator = isFormRowValid,
+) => {
   const allowed = [
     'defaultValue',
     'disabled',
@@ -57,12 +66,16 @@ export const isFormRowValid = (row = {}, componentsMap = {}) => {
 
   if (
     typeof row.label !== 'string' ||
+    !Boolean(row.label) ||
     (
       row.hasOwnProperty('name') &&
-      typeof row.name !== 'string'
+      (
+        typeof row.name !== 'string' ||
+        !Boolean(row.name)
+      )
     )
   ) {
-    invalidLog('\'label\' and \'name\' must be string type.');
+    invalidLog('\'label\' and \'name\' must have a value of string type.');
     return false;
   }
 
@@ -83,7 +96,7 @@ export const isFormRowValid = (row = {}, componentsMap = {}) => {
   }
 
   for (let i = 0; i < row.fields.length; i++) {
-    const isFieldsValid = isFormRowValid(row.fields[i], componentsMap);
+    const isFieldsValid = rowValidator(row.fields[i], componentsMap);
 
     if (!isFieldsValid) {
       return false;

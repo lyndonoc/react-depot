@@ -23,6 +23,8 @@ export const generateFormGroupData = (
 export const generateFormValues = (
   data,
   componentsMap = {},
+  groupDataGenerator = generateFormGroupData,
+  defaultGetter = getDefaultFieldValue,
 ) => {
   return data.reduce(
     (acc, curr) => {
@@ -31,11 +33,11 @@ export const generateFormValues = (
         ? {
           ...(!noValue && {
             [curr.name]: Array.isArray(curr.fields)
-              ? generateFormGroupData(curr.fields, componentsMap)
-              : getDefaultFieldValue(curr, componentsMap),
+              ? groupDataGenerator(curr.fields, componentsMap)
+              : defaultGetter(curr, componentsMap),
           }),
         }
-        : generateFormGroupData(curr.fields);
+        : groupDataGenerator(curr.fields);
       return {
         ...acc,
         ...formGroupData
@@ -58,7 +60,6 @@ export const getDefaultValueFromComponentMap = (
   field,
   componentsMap,
 ) => {
-  console.log({ field, componentsMap });
   const defaultValue = componentsMap[field.type].defaultValue;
 
   return typeof defaultValue === 'function'
