@@ -50,10 +50,11 @@ export const generateFormValues = (
 export const getDefaultFieldValue = (
   field,
   componentsMap,
+  defaultGetter = getDefaultValueFromComponentMap,
 ) => {
   return field.defaultValue
     ? field.defaultValue
-    : getDefaultValueFromComponentMap(field, componentsMap)
+    : defaultGetter(field, componentsMap)
 };
 
 export const getDefaultValueFromComponentMap = (
@@ -67,13 +68,16 @@ export const getDefaultValueFromComponentMap = (
     : defaultValue;
 };
 
-export const sanitizeFormData = (formData = []) => {
+export const sanitizeFormData = (
+  formData = [],
+  sanitizer = sanitizeFormData,
+) => {
   return formData.map((data) => {
     return {
       ...data,
       name: data.name || data.label.toLowerCase().replace(/ /g, '_'),
       ...(Array.isArray(data.fields) && {
-        fields: sanitizeFormData(data.fields)
+        fields: sanitizer(data.fields)
       })
     };
   });
