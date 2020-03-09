@@ -24,6 +24,7 @@ const FormContractor = ({
   componentsMap,
   emitChangeOnLoad,
   formData,
+  useBuiltInStyle,
   onChange,
   onFormDataChange,
   onSubmit,
@@ -170,6 +171,7 @@ const FormContractor = ({
             formFieldData={field}
             formRowData={field}
             name={field.name}
+            useBuiltInStyle={useBuiltInStyle}
           />
         );
       })}
@@ -185,6 +187,7 @@ FormContractor.propTypes = {
   componentsMap: formComponentMapShape,
   emitChangeOnLoad: PropTypes.bool,
   formData: formDataShape,
+  useBuiltInStyle: PropTypes.bool,
   onChange: PropTypes.func,
   onFormDataChange: PropTypes.func,
   onSubmit: PropTypes.func,
@@ -195,6 +198,7 @@ FormContractor.defaultProps = {
   componentsMap: {},
   emitChangeOnLoad: false,
   formData: [],
+  useBuiltInStyle: true,
   onChange: () => {},
   onFormDataChange: () => {},
   onSubmit: () => {},

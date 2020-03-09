@@ -18,6 +18,7 @@ const FormContractorField = ({
   formValues,
   formRowData,
   identifier,
+  useBuiltInStyle,
   onChange,
   onRowDataChange,
 }) => {
@@ -69,6 +70,7 @@ const FormContractorField = ({
       formData={formData}
       formFieldData={formFieldData}
       formRowData={formRowData}
+      useBuiltInStyle={useBuiltInStyle}
       {...fieldProps}
     />
   );
@@ -81,6 +83,7 @@ FormContractorField.propTypes = {
   formValues: PropTypes.object,
   formRowData: formFieldDataShape,
   identifier: PropTypes.string,
+  useBuiltInStyle: PropTypes.bool,
   onChange: PropTypes.func,
   onRowDataChange: PropTypes.func,
 };
@@ -92,6 +95,7 @@ FormContractorField.defaultProps = {
   formValues: {},
   formRowData: {},
   identifier: '',
+  useBuiltInStyle: true,
   onChange: () => {},
   onRowDataChange: () => {},
 };

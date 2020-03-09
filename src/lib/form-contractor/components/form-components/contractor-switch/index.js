@@ -2,22 +2,24 @@ import ClassNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import './style.scss';
-
 const ContractorSwitch = ({
   disabled,
   identifier,
   label,
   name,
+  useBuiltInStyle,
   value,
   values,
   onChange,
 }) => {
+  if (useBuiltInStyle) {
+    require('./style.scss');
+  }
   const handleChange = (evt) => {
     onChange(
       evt.target.checked
         ? values.on
-        : values.off
+        : values.off,
     );
   };
 
@@ -46,9 +48,11 @@ const ContractorSwitch = ({
         type='checkbox'
         onChange={handleChange}
       />
-      <div className="contractor-switch__visual">
-        <div className="contractor-switch__indicator"/>
-      </div>
+      {useBuiltInStyle && (
+        <div className="contractor-switch__visual">
+          <div className="contractor-switch__indicator"/>
+        </div>
+      )}
     </div>
   );
 };
@@ -58,6 +62,7 @@ ContractorSwitch.propTypes = {
   identifier: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
+  useBuiltInStyle: PropTypes.bool,
   value: PropTypes.bool,
   values: PropTypes.shape({
     on: PropTypes.bool.isRequired,
@@ -70,12 +75,14 @@ ContractorSwitch.defaultProps = {
   disabled: false,
   label: '',
   name: '',
+  useBuiltInStyle: true,
   value: false,
   values: {
     on: true,
     off: false,
   },
-  onChange: () => {},
+  onChange: () => {
+  },
 };
 
 export default ContractorSwitch;

@@ -2,8 +2,6 @@ import ClassNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import './style.scss';
-
 const compareChecker = (type, value, optionValue) => {
   if (typeof value === 'string') {
     return value === optionValue;
@@ -23,9 +21,13 @@ const ContractorCheckbox = ({
   label,
   name,
   options,
+  useBuiltInStyle,
   value,
   onChange
 }) => {
+  if (useBuiltInStyle) {
+    require('./style.scss');
+  }
   const handleChange = (e) => {
     const {
       value: inputValue,
@@ -106,6 +108,7 @@ ContractorCheckbox.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.any.isRequired
   })),
+  useBuiltInStyle: PropTypes.bool,
   value: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.string,
@@ -120,6 +123,7 @@ ContractorCheckbox.defaultProps = {
   label: '',
   name: '',
   options: [],
+  useBuiltInStyle: true,
   value: [],
   onChange: () => {},
 };

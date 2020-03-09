@@ -16,6 +16,7 @@ const FormRowGroup = ({
   formFieldData,
   formValues,
   name,
+  useBuiltInStyle,
   onChange,
   onRowDataChange,
 }) => {
@@ -51,6 +52,7 @@ const FormRowGroup = ({
             formValues={formValues}
             formRowData={formFieldData}
             name={`${name}.${field.name}`}
+            useBuiltInStyle={useBuiltInStyle}
             onChange={handleChange}
             onRowDataChange={onRowDataChange}
           />
@@ -67,6 +69,7 @@ FormRowGroup.propTypes = {
   formValues: PropTypes.object,
   formRowData: formFieldDataShape,
   name: PropTypes.string,
+  useBuiltInStyle: PropTypes.bool,
   onChange: PropTypes.func,
   onRowDataChange: PropTypes.func,
 };
@@ -78,6 +81,7 @@ FormRowGroup.defaultProps = {
   formValues: {},
   formRowData: {},
   name: '',
+  useBuiltInStyle: true,
   onChange: () => {},
   onRowDataChange: () => {},
 };
