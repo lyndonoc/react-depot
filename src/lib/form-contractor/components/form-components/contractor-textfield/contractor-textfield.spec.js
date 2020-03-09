@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  mount,
-  shallow,
-} from 'enzyme';
+import { shallow } from 'enzyme';
 
 import ContractorTextField from './';
 
@@ -35,7 +32,7 @@ describe('<ContractorTextField />', () => {
       value: 'value',
       onChange: onChange,
     };
-    const component = mount(<ContractorTextField {...props}/>);
+    const component = shallow(<ContractorTextField {...props}/>);
 
     const inputComponent = component.find('.contractor-textfield__input');
     inputComponent.simulate('change', {

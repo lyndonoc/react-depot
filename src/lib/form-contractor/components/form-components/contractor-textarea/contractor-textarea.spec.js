@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  mount,
-  shallow,
-} from 'enzyme';
+import { shallow } from 'enzyme';
 
 import ContractorTextArea from './';
 
@@ -35,7 +32,7 @@ describe('<ContractorTextArea />', () => {
       value: 'value',
       onChange: onChange,
     };
-    const component = mount(<ContractorTextArea {...props}/>);
+    const component = shallow(<ContractorTextArea {...props}/>);
 
     const inputComponent = component.find('.contractor-textarea__textarea');
     inputComponent.simulate('change', {
