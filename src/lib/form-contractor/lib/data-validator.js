@@ -1,7 +1,7 @@
 export const isFormDataValid = (
   formData,
   componentsMap,
-  rowValidator = isFormDataValid,
+  rowValidator = isFormRowValid,
 ) => {
   if (
     !formData ||
@@ -75,6 +75,7 @@ export const isFormRowValid = (
       )
     )
   ) {
+
     invalidLog('\'label\' and \'name\' must have a value of string type.');
     return false;
   }
@@ -90,16 +91,18 @@ export const isFormRowValid = (
     return false;
   }
 
-  if (!Array.isArray(row.fields)) {
+  if (row.fields && !Array.isArray(row.fields)) {
     invalidLog('\'fields\' must be an array.');
     return false;
   }
 
-  for (let i = 0; i < row.fields.length; i++) {
-    const isFieldsValid = rowValidator(row.fields[i], componentsMap);
+  if (row.fields) {
+    for (let i = 0; i < row.fields.length; i++) {
+      const isFieldsValid = rowValidator(row.fields[i], componentsMap);
 
-    if (!isFieldsValid) {
-      return false;
+      if (!isFieldsValid) {
+        return false;
+      }
     }
   }
 

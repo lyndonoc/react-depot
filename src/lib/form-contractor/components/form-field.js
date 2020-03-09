@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, {
+  useCallback,
+} from 'react';
 
 import { invalidLog } from '../lib/data-validator';
 import {
@@ -22,15 +24,25 @@ const FormContractorField = ({
   const componentMap = componentsMap[formFieldData.type || 'text'];
   if (!componentMap || !componentMap.component) {
     invalidLog(`no component provided for ${formFieldData.type}.`);
-    return null;
   }
 
-  const handleFieldChange = (fieldValue) => {
-    onChange(formFieldData.name, fieldValue);
-  };
-  const handleRowDataChange = (newRowData) => {
-    onRowDataChange(newRowData);
-  };
+  const handleFieldChange = useCallback(
+    (fieldValue) => {
+      onChange(formFieldData.name, fieldValue);
+    },
+    [
+      onChange,
+      formFieldData,
+    ],
+  );
+  const handleRowDataChange = useCallback(
+    (newRowData) => {
+      onRowDataChange(newRowData);
+    },
+    [
+      onRowDataChange,
+    ],
+  );
 
   const FieldComponent = componentMap.component;
   const fieldProps = {
