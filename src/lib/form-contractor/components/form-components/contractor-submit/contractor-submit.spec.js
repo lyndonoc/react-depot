@@ -6,13 +6,13 @@ import ContractorSubmit from './';
 describe('<ContractorSubmit />', () => {
   it('renders passed props correctly', () => {
     const props = {
-      disabled: true,
-      identifier: 'identifier',
-      label: 'label',
       name: 'name',
-      placeholder: 'placeholder',
-      value: true,
     };
     const component = shallow(<ContractorSubmit {...props}/>);
+    const btnComponent = component.find('.contractor-submit');
+
+    expect(btnComponent).toHaveLength(1);
+    expect(btnComponent.props().disabled).toBe(false);
+    expect(btnComponent.props().type).toEqual('submit');
   });
 });

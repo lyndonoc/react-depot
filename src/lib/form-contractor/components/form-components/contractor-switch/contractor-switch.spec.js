@@ -38,7 +38,7 @@ describe('<ContractorSwitch />', () => {
     const inputComponent = component.find('.contractor-switch__input');
     inputComponent.simulate('change', {
       target: {
-        chedked: !props.value,
+        checked: !props.value,
       },
     });
     expect(onChange).toHaveBeenCalledWith(ContractorSwitch.defaultProps.values.off);
