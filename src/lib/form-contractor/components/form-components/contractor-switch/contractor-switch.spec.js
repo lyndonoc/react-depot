@@ -10,7 +10,6 @@ describe('<ContractorSwitch />', () => {
       identifier: 'identifier',
       label: 'label',
       name: 'name',
-      placeholder: 'placeholder',
       value: true,
     };
     const component = shallow(<ContractorSwitch {...props}/>);
@@ -22,14 +21,20 @@ describe('<ContractorSwitch />', () => {
     expect(labelComponent.props().htmlFor).toEqual(`contractor-switch-${props.identifier}`);
   });
 
+  it('does not import style and render custom styles', () => {
+    const props = {
+      useBuiltInStyle: false,
+    };
+    const component = shallow(<ContractorSwitch {...props}/>);
+    expect(component.find('.contractor-switch__visual')).toHaveLength(0);
+  });
+
   it('calls handleChange on input change event', () => {
     const onChange = jest.fn();
     const props = {
-      disabled: true,
       identifier: 'identifier',
       label: 'label',
       name: 'name',
-      placeholder: 'placeholder',
       value: true,
       onChange: onChange,
     };
@@ -42,13 +47,5 @@ describe('<ContractorSwitch />', () => {
       },
     });
     expect(onChange).toHaveBeenCalledWith(ContractorSwitch.defaultProps.values.off);
-  });
-
-  it('does not import style and render custom styles', () => {
-    const props = {
-      useBuiltInStyle: false,
-    };
-    const component = shallow(<ContractorSwitch {...props}/>);
-    expect(component.find('.contractor-switch__visual')).toHaveLength(0);
   });
 });

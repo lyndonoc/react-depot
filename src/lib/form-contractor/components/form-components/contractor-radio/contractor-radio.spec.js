@@ -1,14 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
-import ContractorSelect from './';
+import ContractorRadio from './';
 
-describe('<ContractorSelect />', () => {
+describe('<ContractorRadio />', () => {
   it('renders passed props correctly', () => {
     const props = {
       disabled: true,
       identifier: 'identifier',
       label: 'label',
+      name: 'name',
       options: [
         {
           label: 'Value',
@@ -23,26 +24,29 @@ describe('<ContractorSelect />', () => {
           value: 'value_two',
         },
       ],
-      name: 'name',
       value: 'value',
     };
-    const component = shallow(<ContractorSelect {...props}/>);
-    expect(component.find('.contractor-select--disabled')).toHaveLength(1);
-    expect(component.find('.contractor-select')).toHaveLength(1);
-    expect(component.find('.contractor-select__select').props().value).toEqual(props.value);
-    expect(component.find('.contractor-select__select--option')).toHaveLength(props.options.length);
+    const component = mount(<ContractorRadio {...props}/>);
+    expect(component.find('.contractor-checkbox--disabled')).toHaveLength(1);
+
+    const labelComponent = component.find('.contractor-checkbox__group__item');
+    expect(labelComponent).toHaveLength(props.options.length);
+    labelComponent
+      .forEach((node, nodeIndex) => {
+        const expectedId = `contractor-checkbox__item--${props.identifier}--${nodeIndex}`;
+        const nodeProps = node.props();
+
+        expect(nodeProps.htmlFor).toEqual(expectedId);
+      });
 
     component
-      .find('.contractor-select__select--option')
+      .find('.contractor-checkbox__group__item--input')
       .forEach((node, nodeIndex) => {
         const nodeProps = node.props();
 
+        expect(Boolean(nodeProps.checked)).toBe(nodeProps.value === props.value);
         expect(nodeProps.value).toEqual(props.options[nodeIndex].value);
       });
-
-    const labelComponent = component.find('.contractor-select__label');
-    expect(labelComponent).toHaveLength(1);
-    expect(labelComponent.props().htmlFor).toEqual(`contractor-select-${props.identifier}`);
   });
 
   it('calls handleChange on input change event', () => {
@@ -50,6 +54,7 @@ describe('<ContractorSelect />', () => {
     const props = {
       identifier: 'identifier',
       label: 'label',
+      name: 'name',
       options: [
         {
           label: 'Value',
@@ -64,18 +69,17 @@ describe('<ContractorSelect />', () => {
           value: 'value_two',
         },
       ],
-      name: 'name',
       value: 'value',
       onChange,
     };
-    const component = shallow(<ContractorSelect {...props}/>);
+    const component = mount(<ContractorRadio {...props}/>);
 
-    const inputComponent = component.find('.contractor-select__select');
+    const inputComponent = component.find('.contractor-checkbox__group__item--input').at(2);
     inputComponent.simulate('change', {
       target: {
-        value: props.options[props.options.length - 1].value,
+        value: props.options[2].value,
       },
     });
-    expect(onChange).toHaveBeenCalledWith(props.options[props.options.length - 1].value);
+    expect(onChange).toHaveBeenCalledWith(props.options[2].value);
   });
 });

@@ -19,12 +19,15 @@ describe('<ContractorNumber />', () => {
     const labelComponent = component.find('.contractor-number__label');
     expect(labelComponent).toHaveLength(1);
     expect(labelComponent.props().htmlFor).toEqual(`contractor-number-${props.identifier}`);
+
+    const inputComponent = component.find('.contractor-number__input');
+    expect(inputComponent).toHaveLength(1);
+    expect(inputComponent.props().id).toEqual(`contractor-number-${props.identifier}`);
   });
 
   it('calls handleChange on input change event', () => {
     const onChange = jest.fn();
     const props = {
-      disabled: true,
       identifier: 'identifier',
       label: 'label',
       name: 'name',
@@ -33,7 +36,6 @@ describe('<ContractorNumber />', () => {
       onChange: onChange,
     };
     const component = shallow(<ContractorNumber {...props}/>);
-
     const inputComponent = component.find('.contractor-number__input');
     inputComponent.simulate('change', {
       target: {

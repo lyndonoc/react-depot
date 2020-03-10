@@ -59,7 +59,7 @@ const ContractorCheckbox = ({
     <div className={containerClassNames}>
       {label && (
         <div
-          className="contractor-checkbox__group-label"
+          className="contractor-checkbox__group-wwwwwwwwwwlabel"
         >
           {label}
         </div>

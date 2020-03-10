@@ -24,7 +24,6 @@ describe('<ContractorTextField />', () => {
   it('calls handleChange on input change event', () => {
     const onChange = jest.fn();
     const props = {
-      disabled: true,
       identifier: 'identifier',
       label: 'label',
       name: 'name',
