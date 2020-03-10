@@ -22,10 +22,7 @@ const FormContractorField = ({
   onChange,
   onRowDataChange,
 }) => {
-  const componentMap = componentsMap[formFieldData.type || 'text'];
-  if (!componentMap || !componentMap.component) {
-    invalidLog(`no component provided for ${formFieldData.type}.`);
-  }
+  const componentMap = componentsMap[formFieldData.type || 'textfield'];
 
   const handleFieldChange = useCallback(
     (fieldValue) => {
@@ -45,6 +42,11 @@ const FormContractorField = ({
     ],
   );
 
+  if (!componentMap || !componentMap.component) {
+    invalidLog(`no component provided for ${formFieldData.type}.`);
+    return null;
+  }
+
   const FieldComponent = componentMap.component;
   const fieldProps = {
     disabled: Boolean(formFieldData.disabled),
@@ -52,7 +54,7 @@ const FormContractorField = ({
     label: formFieldData.label,
     name: formFieldData.name,
     value: formValues && formValues.hasOwnProperty(formFieldData.name)
-      ? (formFieldData.type === 'text'
+      ? (formFieldData.type === 'textfield'
         ? formValues[formFieldData.name].toString()
         : formValues[formFieldData.name])
       : '',
