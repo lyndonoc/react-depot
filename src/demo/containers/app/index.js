@@ -58,8 +58,8 @@ const App = () => {
         <section className="form-contractor-demo__section">
           <h3>2) Let the <code>contractor</code> build the form</h3>
           <FormContractor
-            formData={_formData}
             emitChangeOnLoad
+            formData={_formData}
             onChange={handleFormChange}
             onSubmit={handleFormChange}
           />
