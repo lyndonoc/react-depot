@@ -1,5 +1,4 @@
 import {
-  ContractorButton,
   ContractorCheckbox,
   ContractorRadio,
   ContractorSelect,
@@ -11,10 +10,6 @@ import {
 } from '../components/form-components';
 
 export default {
-  button: {
-    component: ContractorButton,
-    noValue: true,
-  },
   checkbox: {
     component: ContractorCheckbox,
     defaultValue: [],
