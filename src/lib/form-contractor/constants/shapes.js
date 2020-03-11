@@ -22,6 +22,7 @@ export const formBaseFieldShape = {
     label: formLabelShape,
     value: formValueShape,
   })),
+  useBuiltInStyle: PropTypes.bool,
   type: PropTypes.string,
 };
 

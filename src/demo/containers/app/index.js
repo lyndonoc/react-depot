@@ -1,13 +1,13 @@
+import FormContractor from 'react-form-contractor';
 import JSONEditor from 'react-json-editor-ajrm';
 import React, { useState } from 'react';
 import locale from 'react-json-editor-ajrm/locale/en';
 
-import FormContractor from '../lib/form-contractor';
-import HammerIcon from './components/hammer';
-import Octocat from './components/octocat';
-import { formData } from './constants/formData';
+import HammerIcon from '../../components/hammer';
+import Octocat from '../../components/octocat';
+import { formData } from '../../constants/formData';
 
-import './App.scss';
+import './style.scss';
 
 const App = () => {
   const [
@@ -56,7 +56,7 @@ const App = () => {
           />
         </section>
         <section className="form-contractor-demo__section">
-          <h3>2) Let <code>react-form-contractor</code> build the form for you</h3>
+          <h3>2) Let the <code>contractor</code> build the form</h3>
           <FormContractor
             formData={_formData}
             emitChangeOnLoad
@@ -65,7 +65,7 @@ const App = () => {
           />
         </section>
         <section className="form-contractor-demo__section">
-          <h3>3) Check out the dynamically generated value</h3>
+          <h3>3) Check out the generated value</h3>
           <JSONEditor
             height="100%"
             id="form-contractor-demo__viewer"
