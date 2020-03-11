@@ -6,6 +6,7 @@ import FormField from './form-field';
 describe('<FormField />', () => {
   it('renders passed props correctly', () => {
     const onChange = jest.fn();
+    const onRowDataChange = jest.fn();
     const props = {
       componentsMap: {
         textfield: {
@@ -18,6 +19,7 @@ describe('<FormField />', () => {
       },
       value: 'name',
       onChange,
+      onRowDataChange,
     };
     const component = shallow(<FormField {...props}/>);
     const fieldComponent = component.find(props.componentsMap.textfield.component);
@@ -25,5 +27,8 @@ describe('<FormField />', () => {
 
     fieldComponent.props().onChange(props.name);
     expect(onChange).toHaveBeenCalledWith(props.formFieldData.name, props.name);
+
+    fieldComponent.props().onRowDataChange(props.name);
+    expect(onRowDataChange).toHaveBeenCalledWith(props.name);
   });
 });
