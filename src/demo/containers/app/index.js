@@ -1,9 +1,9 @@
-import FormContractor from 'react-form-contractor';
 import JSONEditor from 'react-json-editor-ajrm';
 import React, { useState } from 'react';
 import locale from 'react-json-editor-ajrm/locale/en';
 
 import HammerIcon from '../../components/hammer';
+import FormContractor from '../../../lib/form-contractor';
 import Octocat from '../../components/octocat';
 import { formData } from '../../constants/formData';
 

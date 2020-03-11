@@ -30,8 +30,8 @@
   "scripts": {
     "start": "react-scripts start",
     "start:demo": "react-scripts start",
-    "build:demo": "react-scripts build",
-    "build": "NODE_ENV=production babel src/lib/form-contractor -d ./dist --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\" --copy-files --no-copy-ignored",
+    "build": "react-scripts build",
+    "build:library": "NODE_ENV=production babel src/lib/form-contractor -d ./dist --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\" --copy-files --no-copy-ignored",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
