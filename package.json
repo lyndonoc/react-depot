@@ -1,9 +1,8 @@
 {
   "name": "react-form-contractor",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Lyndon Ohhyung Chun <lyndonoc@gmail.com>",
   "main": "dist/index.js",
-  "private": true,
   "dependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.7",
