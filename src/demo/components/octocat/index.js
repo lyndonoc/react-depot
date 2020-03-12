@@ -4,7 +4,7 @@ const Octocat = () => {
   return (
     <a
       className="octocat-icon"
-      href="https://github.com"
+      href="https://github.com/lyndonoc/react-form-contractor"
     >
       <svg
         aria-hidden="true"
