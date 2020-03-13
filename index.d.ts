@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-interface ComponentsMap {
+export interface ComponentsMap {
   [key: string]: {
     component: React.ReactNode,
   }
 }
 
-interface FormFieldType {
+export interface FormFieldType {
   defaultValue?: any
   disabled: boolean
   label: string[] | string
@@ -19,15 +19,22 @@ interface FormFieldType {
   type: string
 }
 
-interface FormDataType extends FormFieldType {
+export interface FormFieldComponentProps extends FormFieldType {
+  identifier: string
+  placeholder: string
+  onChange: (FormValuesType) => void
+  onFormDataChange: (FormDataType) => void
+}
+
+export interface FormDataType extends FormFieldType {
   fields: Array<FormFieldType>
 }
 
-interface FormValuesType {
+export interface FormValuesType {
   [key: string]: string | FormValuesType
 }
 
-interface ReactFormContractorProps {
+export interface ReactFormContractorProps {
   classNames: string[] | string
   componentsMap: ComponentsMap
   emitChangeOnLoad: boolean
