@@ -1,6 +1,6 @@
 {
   "name": "react-form-contractor",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Lyndon Ohhyung Chun <lyndonoc@gmail.com>",
   "main": "dist/index.js",
   "dependencies": {

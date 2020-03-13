@@ -1,3 +1,9 @@
+2020-03-13, Version 1.0.6
+=========================
+
+ * fixed type declaration again (lyndonoc)
+
+
 2020-03-13, Version 1.0.5
 =========================
 
