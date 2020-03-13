@@ -1,4 +1,4 @@
-2020-03-13, Version 1.0.2
+2020-03-13, Version 1.0.3
 =========================
 
  * demo site style fix (lyndonoc)
