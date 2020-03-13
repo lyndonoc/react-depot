@@ -14,7 +14,7 @@ const App = () => {
       <div className="drag-scroll-demo__header__wrapper">
         <div className="drag-scroll-demo__header">
           <h1 className="drag-scroll-demo__title">
-            react-drag-scroll
+            react-scroll-dragger
           </h1>
         </div>
         <Octocat/>

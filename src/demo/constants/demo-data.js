@@ -137,7 +137,7 @@ export default [
       {
         language: 'scss',
         code: `
-          .react-drag-scroll__btn {
+          .react-scroll-dragger__btn {
             &--inactive {
               opacity: .25 !important;
             }

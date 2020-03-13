@@ -46,8 +46,8 @@ code {
       }
     }
     &:last-child {
-      .react-drag-scroll {
-        .react-drag-scroll__btn {
+      .react-scroll-dragger {
+        .react-scroll-dragger__btn {
           &--inactive {
             opacity: .25 !important;
           }

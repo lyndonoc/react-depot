@@ -11,7 +11,7 @@ const StyleWrapper = styled.div`
   flex-wrap: nowrap;
   overflow: hidden;
   position: relative;
-  .react-drag-scroll {
+  .react-scroll-dragger {
     &__btn {
       background-color: #fff;
       background-position: center center;
@@ -150,31 +150,31 @@ class DragScrollContainer extends PureComponent {
     return {
       prev_button: needScroll ? (
         <button
-          key="react-drag-scroll__prev-btn"
-          className={ClassNames('react-drag-scroll__btn', {
-            'react-drag-scroll__btn--prev': true,
-            'react-drag-scroll__btn--active': !isAtBeginning,
-            'react-drag-scroll__btn--inactive': isAtBeginning,
+          key="react-scroll-dragger__prev-btn"
+          className={ClassNames('react-scroll-dragger__btn', {
+            'react-scroll-dragger__btn--prev': true,
+            'react-scroll-dragger__btn--active': !isAtBeginning,
+            'react-scroll-dragger__btn--inactive': isAtBeginning,
           })}
           onClick={this.handleBtnClick.bind(null, true)}
         />
       ) : null,
       next_button: needScroll ? (
         <button
-          key="react-drag-scroll__next-btn"
-          className={ClassNames('react-drag-scroll__btn', {
-            'react-drag-scroll__btn--next': true,
-            'react-drag-scroll__btn--active': !isAtEnd,
-            'react-drag-scroll__btn--inactive': isAtEnd,
+          key="react-scroll-dragger__next-btn"
+          className={ClassNames('react-scroll-dragger__btn', {
+            'react-scroll-dragger__btn--next': true,
+            'react-scroll-dragger__btn--active': !isAtEnd,
+            'react-scroll-dragger__btn--inactive': isAtEnd,
           })}
           onClick={this.handleBtnClick.bind(null, false)}
         />
       ) : null,
       children: (
         <Scrollbars
-          key="react-drag-scroll__children"
+          key="react-scroll-dragger__children"
           autoHide
-          className="react-drag-scroll__container"
+          className="react-scroll-dragger__container"
           onClickCapture={this.handleClickCapture}
           onScroll={this.handleContainerScroll}
           ref={this.handleRef}
@@ -296,7 +296,7 @@ class DragScrollContainer extends PureComponent {
 
     return (
       <StyleWrapper
-        className="react-drag-scroll"
+        className="react-scroll-dragger"
         onMouseDown={this.handleMouseDown}
         onMouseUp={this.handleMouseUp}
         {...height && {
