@@ -1,6 +1,6 @@
 {
   "name": "react-form-contractor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Lyndon Ohhyung Chun <lyndonoc@gmail.com>",
   "main": "dist/index.js",
   "dependencies": {
@@ -31,6 +31,7 @@
     "start:demo": "react-scripts start",
     "build": "react-scripts build",
     "build:library": "NODE_ENV=production babel src/lib/form-contractor -d ./dist --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\" --copy-files --no-copy-ignored",
+    "prepublish": "npm run build:library",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
