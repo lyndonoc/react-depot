@@ -1,7 +1,7 @@
 import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
-import DragScroll from '../../../lib/drag-scroll';
+import DragScroll from '../../../lib/scroll-dragger';
 import Octocat from '../../components/octocat';
 import dragItems from '../../constants/demo-data';
 

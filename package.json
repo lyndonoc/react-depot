@@ -34,7 +34,7 @@
     "start": "react-scripts start",
     "start:demo": "react-scripts start",
     "build": "react-scripts build",
-    "build:library": "NODE_ENV=production babel src/lib/drag-scroll -d ./dist --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\" --copy-files --no-copy-ignored",
+    "build:library": "NODE_ENV=production babel src/lib/scroll-dragger -d ./dist --ignore \\\"src/**/*.spec.js\\\",\\\"src/**/*.test.js\\\" --copy-files --no-copy-ignored",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
