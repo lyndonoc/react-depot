@@ -22,7 +22,7 @@ export interface FormFieldType {
 export interface FormFieldComponentProps extends FormFieldType {
   identifier: string
   placeholder: string
-  value: FormValuesType
+  value: string | FormValuesType
   onChange: (FormValuesType) => void
   onFormDataChange: (FormDataType) => void
 }
