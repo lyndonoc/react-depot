@@ -1,3 +1,9 @@
+2020-03-13, Version 1.0.5
+=========================
+
+ * added more type declarations (lyndonoc)
+
+
 2020-03-13, Version 1.0.4
 =========================
 
