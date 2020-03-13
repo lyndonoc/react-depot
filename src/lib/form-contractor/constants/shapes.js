@@ -1,10 +1,5 @@
 import PropTypes from 'prop-types';
 
-export const formLabelShape = PropTypes.oneOfType([
-  PropTypes.string,
-  PropTypes.arrayOf(PropTypes.string),
-]);
-
 export const formValueShape = PropTypes.oneOfType([
   PropTypes.array,
   PropTypes.bool,
@@ -16,10 +11,10 @@ export const formValueShape = PropTypes.oneOfType([
 export const formBaseFieldShape = {
   defaultValue: formValueShape,
   disabled: PropTypes.bool,
-  label: formLabelShape,
+  label: PropTypes.string,
   name: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.shape({
-    label: formLabelShape,
+    label: PropTypes.string,
     value: formValueShape,
   })),
   useBuiltInStyle: PropTypes.bool,
