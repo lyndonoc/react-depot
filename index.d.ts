@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export interface ReactScrollDraggerProps {
   children: React.ReactNode | React.ReactNodeArray
-  componentOrder: string[]
+  componentOrder?: string[]
   height?: number
 }
 
