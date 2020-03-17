@@ -1,4 +1,4 @@
-# React Form Contractor
+# React Scroll Dragger
 
 Simple drop-in container for enabling horizontal drag scrolling.
 
