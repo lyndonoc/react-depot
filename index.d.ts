@@ -8,14 +8,14 @@ export interface ComponentsMap {
 
 export interface FormFieldType {
   defaultValue?: any
-  disabled: boolean
+  disabled?: boolean
   label: string[] | string
   name: string
-  options: Array<{
+  options?: Array<{
     label: string
     value: any
   }>
-  useBuiltInStyle: boolean
+  useBuiltInStyle?: boolean
   type: string
 }
 
@@ -28,7 +28,7 @@ export interface FormFieldComponentProps extends FormFieldType {
 }
 
 export interface FormDataType extends FormFieldType {
-  fields: Array<FormFieldType>
+  fields?: Array<FormFieldType>
 }
 
 export interface FormValuesType {
