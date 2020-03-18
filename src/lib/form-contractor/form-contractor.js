@@ -31,12 +31,18 @@ const FormContractor = ({
 }) => {
   const _componentsMap = useMemo(
     () => {
-      return Object.keys(defaultComponentsMap).reduce(
+      const allKeys = Array.from(
+        new Set(
+          Object.keys(defaultComponentsMap),
+          Object.keys(componentsMap),
+        ),
+      );
+      return allKeys.reduce(
         (acc, curr) => {
           return {
             ...acc,
             [curr]: {
-              ...defaultComponentsMap[curr],
+              ...(defaultComponentsMap[curr] || {}),
               ...(componentsMap[curr] || {}),
             },
           };
