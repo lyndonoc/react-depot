@@ -39,7 +39,7 @@ export interface ReactFormContractorProps {
   classNames: string[] | string
   componentsMap: ComponentsMap
   emitChangeOnLoad: boolean
-  formData: FormDataType
+  formData: FormDataType[]
   useBuiltInStyle: boolean
   onChange: (FormValuesType) => void
   onFormDataChange: (FormDataType) => void
