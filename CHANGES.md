@@ -1,3 +1,9 @@
+2020-03-18, Version 1.1.1
+=========================
+
+ * fixed componentsmap merge bug again (lyndonoc)
+
+
 2020-03-18, Version 1.1.0
 =========================
 
