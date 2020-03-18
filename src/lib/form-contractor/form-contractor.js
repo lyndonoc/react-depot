@@ -33,8 +33,9 @@ const FormContractor = ({
     () => {
       const allKeys = Array.from(
         new Set(
-          Object.keys(defaultComponentsMap),
-          Object.keys(componentsMap),
+          Object
+            .keys(defaultComponentsMap)
+            .concat(Object.keys(componentsMap)),
         ),
       );
       return allKeys.reduce(
