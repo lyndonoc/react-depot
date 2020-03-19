@@ -36,16 +36,16 @@ export interface FormValuesType {
 }
 
 export interface ReactFormContractorProps {
-  classNames: string[] | string
-  componentsMap: ComponentsMap
-  emitChangeOnLoad: boolean
-  formData: FormDataType[]
-  useBuiltInStyle: boolean
-  onChange: (FormValuesType) => void
-  onFormDataChange: (FormDataType) => void
-  onSubmit: (FormValuesType) => void
+  classNames?: string[] | string
+  componentsMap?: ComponentsMap
+  emitChangeOnLoad?: boolean
+  formData?: FormDataType[]
+  useBuiltInStyle?: boolean
+  onChange?: (FormValuesType) => void
+  onFormDataChange?: (FormDataType) => void
+  onSubmit?: (FormValuesType) => void
 }
 
-export default interface ReactFormContractor {
-  (props: ReactFormContractorProps): JSX.Element
-}
+declare function ReactFormContractor(props: ReactFormContractorProps): JSX.Element
+
+export default ReactFormContractor
