@@ -53,6 +53,7 @@ const FormContractorField = ({
     identifier,
     label: formFieldData.label,
     name: formFieldData.name,
+    placeholder: formFieldData.placeholder,
     value: formValues && formValues.hasOwnProperty(formFieldData.name)
       ? (formFieldData.type === 'textfield'
         ? formValues[formFieldData.name].toString()
