@@ -37,7 +37,7 @@ const ContractorTextArea = ({
       </label>
       <textarea
         className="contractor-textarea__textarea"
-        disabled
+        disabled={disabled}
         name={name}
         id={id}
         placeholder={placeholder}
