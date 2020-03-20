@@ -1,3 +1,9 @@
+2020-03-20, Version 1.1.6
+=========================
+
+ * fix textarea disabled prop (lyndonoc)
+
+
 2020-03-20, Version 1.1.5
 =========================
 
