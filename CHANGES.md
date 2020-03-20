@@ -1,3 +1,9 @@
+2020-03-20, Version 1.1.4
+=========================
+
+ * added placeholder data type (lyndonoc)
+
+
 2020-03-19, Version 1.1.3
 =========================
 
