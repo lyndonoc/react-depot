@@ -37,6 +37,7 @@ export const isFormRowValid = (
     'options',
     'placeholder',
     'fields',
+    'required',
     'type',
   ];
   const keys = Object.keys(row);
