@@ -34,7 +34,7 @@ export interface FormDataType extends FormFieldType {
 }
 
 export interface FormValuesType {
-  [key: string]: string | FormValuesType
+  [key: string]: any
 }
 
 export interface ReactFormContractorProps {
