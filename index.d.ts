@@ -30,6 +30,7 @@ export interface FormFieldComponentProps extends FormFieldType {
 export interface FormDataType extends FormFieldType {
   placeholder?: string
   fields?: Array<FormFieldType>
+  required?: boolean
 }
 
 export interface FormValuesType {
