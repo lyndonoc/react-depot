@@ -36,6 +36,7 @@ export const isFormRowValid = (
     'name',
     'options',
     'placeholder',
+    'props',
     'fields',
     'required',
     'type',
