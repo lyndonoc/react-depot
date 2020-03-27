@@ -11,6 +11,7 @@ const ContractorSwitch = ({
   value,
   values,
   onChange,
+  ...props
 }) => {
   if (useBuiltInStyle) {
     require('./style.scss');
@@ -47,6 +48,7 @@ const ContractorSwitch = ({
         name={name}
         type='checkbox'
         onChange={handleChange}
+        {...props}
       />
       {useBuiltInStyle && (
         <div className="contractor-switch__visual">

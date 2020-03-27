@@ -23,7 +23,8 @@ const ContractorCheckbox = ({
   options,
   useBuiltInStyle,
   value,
-  onChange
+  onChange,
+  ...props
 }) => {
   if (useBuiltInStyle) {
     require('./style.scss');
@@ -83,6 +84,7 @@ const ContractorCheckbox = ({
                 type={inputType}
                 value={option.value}
                 onChange={handleChange}
+                {...props}
               />
               <span className="contractor-checkbox__group__item--text">
                 {option.label}

@@ -10,6 +10,7 @@ const ContractorTextArea = ({
   placeholder,
   value,
   onChange,
+  ...props
 }) => {
   const handleChange = useCallback(
     (event) => {
@@ -43,6 +44,7 @@ const ContractorTextArea = ({
         placeholder={placeholder}
         value={value}
         onChange={handleChange}
+        {...props}
       />
     </div>
   );

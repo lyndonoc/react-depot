@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface ComponentsMap {
+export interface ComponentsMapType {
   [key: string]: {
     component: React.ReactNode,
   }
@@ -28,8 +28,9 @@ export interface FormFieldComponentProps extends FormFieldType {
 }
 
 export interface FormDataType extends FormFieldType {
-  placeholder?: string
   fields?: Array<FormFieldType>
+  placeholder?: string
+  props?: FormValuesType
   required?: boolean
 }
 
@@ -39,15 +40,15 @@ export interface FormValuesType {
 
 export interface ReactFormContractorProps {
   classNames?: string[] | string
-  componentsMap?: ComponentsMap
+  componentsMap?: ComponentsMapType
   emitChangeOnLoad?: boolean
   formData?: FormDataType[]
   useBuiltInStyle?: boolean
-  onChange?: (FormValuesType) => void
-  onFormDataChange?: (FormDataType) => void
-  onSubmit?: (FormValuesType) => void
+  onChange?: (values: FormValuesType) => void
+  onFormDataChange?: (data: FormDataType[]) => void
+  onSubmit?: (values: FormValuesType) => void
 }
 
 declare function ReactFormContractor(props: ReactFormContractorProps): JSX.Element
 
-export default ReactFormContractor
+export default ReactFormContractor;

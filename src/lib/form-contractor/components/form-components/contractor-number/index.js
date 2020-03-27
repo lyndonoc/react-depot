@@ -10,6 +10,7 @@ const ContractorNumber = ({
   placeholder,
   value,
   onChange,
+  ...props
 }) => {
   const handleChange = useCallback(
     (event) => {
@@ -44,6 +45,7 @@ const ContractorNumber = ({
         type="number"
         value={value}
         onChange={handleChange}
+        {...props}
       />
     </div>
   );
