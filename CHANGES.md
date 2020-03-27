@@ -1,3 +1,9 @@
+2020-03-27, Version 1.2.0
+=========================
+
+ * added props type declaration (lyndonoc)
+
+
 2020-03-24, Version 1.1.9
 =========================
 
