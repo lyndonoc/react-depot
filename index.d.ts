@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export interface ComponentsMapType {
   [key: string]: {
-    component: React.ReactNode,
+    component: React.ElementType,
   }
 }
 
@@ -15,6 +15,7 @@ export interface FormFieldType {
     label: string
     value: any
   }>
+  props?: FormValuesType
   useBuiltInStyle?: boolean
   type: string
 }
