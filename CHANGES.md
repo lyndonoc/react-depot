@@ -1,4 +1,6 @@
-2020-03-27, Version 1.2.2
+
+
+2020-03-26, Version 1.2.2
 =========================
 
  * allowed field fix (lyndonoc)
