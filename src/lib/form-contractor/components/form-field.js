@@ -59,7 +59,9 @@ const FormContractorField = ({
         ? formValues[formFieldData.name].toString()
         : formValues[formFieldData.name])
       : '',
-    ...(formFieldData.props || {}),
+    props: {
+      ...(formFieldData.props || {}),
+    },
     ...(componentMap.props || {}),
     ...(formFieldData.options && {
       options: formFieldData.options,

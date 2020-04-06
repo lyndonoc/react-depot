@@ -8,9 +8,9 @@ const ContractorTextField = ({
   label,
   name,
   placeholder,
+  props,
   value,
   onChange,
-  ...props
 }) => {
   const handleChange = useCallback(
     (event) => {
@@ -57,6 +57,7 @@ ContractorTextField.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
+  props: PropTypes.object,
   value: PropTypes.string,
   onChange: PropTypes.func,
 };
@@ -67,6 +68,7 @@ ContractorTextField.defaultProps = {
   label: '',
   name: '',
   placeholder: '',
+  props: {},
   value: '',
   onChange: () => {},
 };

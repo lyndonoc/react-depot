@@ -7,11 +7,11 @@ const ContractorSwitch = ({
   identifier,
   label,
   name,
+  props,
   useBuiltInStyle,
   value,
   values,
   onChange,
-  ...props
 }) => {
   if (useBuiltInStyle) {
     require('./style.scss');
@@ -64,6 +64,7 @@ ContractorSwitch.propTypes = {
   identifier: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
+  props: PropTypes.object,
   useBuiltInStyle: PropTypes.bool,
   value: PropTypes.bool,
   values: PropTypes.shape({
@@ -77,6 +78,7 @@ ContractorSwitch.defaultProps = {
   disabled: false,
   label: '',
   name: '',
+  props: {},
   useBuiltInStyle: true,
   value: false,
   values: {

@@ -21,10 +21,10 @@ const ContractorCheckbox = ({
   label,
   name,
   options,
+  props,
   useBuiltInStyle,
   value,
   onChange,
-  ...props
 }) => {
   if (useBuiltInStyle) {
     require('./style.scss');
@@ -110,6 +110,7 @@ ContractorCheckbox.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.any.isRequired
   })),
+  props: PropTypes.object,
   useBuiltInStyle: PropTypes.bool,
   value: PropTypes.oneOfType([
     PropTypes.array,
@@ -125,6 +126,7 @@ ContractorCheckbox.defaultProps = {
   label: '',
   name: '',
   options: [],
+  props: {},
   useBuiltInStyle: true,
   value: [],
   onChange: () => {},

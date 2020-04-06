@@ -8,9 +8,9 @@ const ContractorNumber = ({
   label,
   name,
   placeholder,
+  props,
   value,
   onChange,
-  ...props
 }) => {
   const handleChange = useCallback(
     (event) => {
@@ -57,6 +57,7 @@ ContractorNumber.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
+  props: PropTypes.object,
   value: PropTypes.number,
   onChange: PropTypes.func,
 };
@@ -67,6 +68,7 @@ ContractorNumber.defaultProps = {
   label: '',
   name: '',
   placeholder: '',
+  props: {},
   value: 0,
   onChange: () => {},
 };

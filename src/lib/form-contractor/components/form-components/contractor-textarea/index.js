@@ -8,9 +8,9 @@ const ContractorTextArea = ({
   label,
   name,
   placeholder,
+  props,
   value,
   onChange,
-  ...props
 }) => {
   const handleChange = useCallback(
     (event) => {
@@ -55,6 +55,7 @@ ContractorTextArea.propTypes = {
   identifier: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
+  props: PropTypes.object,
   placeholder: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
@@ -66,6 +67,7 @@ ContractorTextArea.defaultProps = {
   label: '',
   name: '',
   placeholder: '',
+  props: {},
   value: '',
   onChange: () => {},
 };
