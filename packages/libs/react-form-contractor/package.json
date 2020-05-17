@@ -1,0 +1,41 @@
+{
+  "name": "react-form-contractor",
+  "version": "1.2.5",
+  "author": "Lyndon Ohhyung Chun <lyndonoc@gmail.com>",
+  "main": "dist/index.js",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-json-editor-ajrm": "^2.5.9"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.0",
+    "react-scripts": "3.4.0"
+  },
+  "scripts": {
+    "start": "node_modules/.bin/react-scripts start",
+    "start:demo": "node_modules/.bin/react-scripts start",
+    "build": "node_modules/.bin/react-scripts build",
+    "build:library": "NODE_ENV=production babel src/lib/form-contractor -d ./dist --copy-files --no-copy-ignored --delete-dir-on-start --root-mode upward",
+    "prepublish": "npm run build:library",
+    "test": "node_modules/.bin/react-scripts test",
+    "eject": "node_modules/.bin/react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

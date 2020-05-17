@@ -1,0 +1,16 @@
+{
+  "packages": [
+    "packages/libs/*"
+  ],
+  "command": {
+    "version": {
+      "allowBranch": "master",
+      "conventionalCommits": true,
+      "exact": true,
+      "message": "chore(release): %s"
+    }
+  },
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true
+}

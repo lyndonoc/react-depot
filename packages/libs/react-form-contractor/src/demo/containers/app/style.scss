@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+html {
+  background-color: #e3e3e3;
+}
+body {
+  margin: 0;
+  font-family: 'Cousine', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+#root {
+  height: 100%;
+  margin: 0 auto;
+  min-width: 360px;
+  max-width: 1200px;
+  width: 100%;
+}
+.form-contractor-demo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 15px;
+  &__section {
+    margin: 0 auto;
+    max-width: 768px;
+    width: 100%;
+  }
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+    justify-content: space-between;
+    &__section {
+      width: 30%;
+    }
+  }
+  &__container {
+    padding: 0 15px;
+  }
+  &__header {
+    align-items: center;
+    display: flex;
+    height: 50px;
+    width: calc(100% - 30px);
+    > figure {
+      margin-right: 10px;
+    }
+    &__wrapper {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0 0;
+      .octocat-icon {
+        display: block;
+        height: 40px;
+        width: 40px;
+        > svg {
+          height: inherit;
+          width: inherit;
+        }
+      }
+    }
+  }
+  &__main {
+    &--intro {
+      padding: 60px 0 30px;
+      > h2 {
+        font-size: 20px;
+        margin-bottom: 60px;
+        text-align: center;
+      }
+      > p {
+        font-size: 16px;
+        margin: 0 auto;
+        max-width: 768px;
+        width: 100%;
+        @media screen and (min-width: 1200px) {
+          max-width: none;
+        }
+      }
+    }
+  }
+  &__title {
+    color: #3e3e3e;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+  }
+  &__section {
+    > h3 {
+      font-size: 16px;
+      margin: 30px 0 15px;
+      @media screen and (min-width: 1200px) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+fieldset {
+  margin: 15px 0;
+  padding: 15px;
+}
+
