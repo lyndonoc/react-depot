@@ -14,21 +14,21 @@ import * as serviceWorker from './serviceWorker';
 const routes = [
   {
     component: ReactFormContractor,
-    path: '/react-depot/react-form-contractor',
+    path: '/react-form-contractor',
   },
   {
     component: ReactScrollDragger,
-    path: '/react-depot/react-scroll-dragger',
+    path: '/react-scroll-dragger',
   },
   {
-    component: () => <Redirect to="/react-depot/react-form-contractor"/>,
+    component: () => <Redirect to="/react-form-contractor"/>,
     path: '*',
   },
 ];
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         {routes.map((route, routeIndex) => {
           return (
