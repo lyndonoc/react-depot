@@ -28,9 +28,6 @@ const StyleWrapper = styled.div`
       }
       &--next {
         background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z'/%3E%3C/svg%3E");
-        // google material icons do not have an icon for right arrow
-        // rotating the svg itself is not supported in Safari
-        // so here it is using a left arrow svg as background and rotated 180 deg
         transform: rotate(180deg) !important;
       }
     }
