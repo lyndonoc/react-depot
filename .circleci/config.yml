@@ -43,8 +43,8 @@ jobs:
       - run:
           name: Configuring git
           command: |
-            git config --global user.email "lyndonoc@gmail.com"
-            git config --global user.name "lyndonoc"
+            git config --global user.email "${git log -1 --pretty=format:'%ae'}"
+            git config --global user.name "${git log -1 --pretty=format:'%an'}"
       - run:
           name: npm-publish
           command: yarn run publish:libs
