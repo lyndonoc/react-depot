@@ -291,6 +291,7 @@ class DragScrollContainer extends PureComponent {
       },
     } = this;
     const componentMap = this.getComponentMap();
+    console.log(rest);
 
     return (
       <StyleWrapper
