@@ -13,6 +13,11 @@ jobs:
             npm set registry https://registry.npmjs.org
             echo //registry.npmjs.org/:_authToken=\"${NPM_TOKEN}\" >> ~/.npmrc
       - run:
+          name: Configuring git
+          command: |
+            git config --global user.email "lyndonoc@gmail.com"
+            git config --global user.name "lyndonoc"
+      - run:
           name: yarn-install
           command: yarn install
       - save_cache:
