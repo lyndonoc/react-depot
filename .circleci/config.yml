@@ -68,7 +68,7 @@ jobs:
             git log -1 --pretty=format:'%an' | xargs git config --global user.name
       - run:
           name: npm-publish
-          command: yarn run deploy:pages
+          command: yarn install && yarn run deploy:pages
 workflows:
   version: 2
   run-tests:
