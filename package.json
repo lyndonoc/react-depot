@@ -22,7 +22,7 @@
   },
   "scripts": {
     "build:libs": "lerna run build:library",
-    "publish:libs": "lerna publish --yes",
+    "publish:libs": "lerna publish from-git --yes",
     "test:libs": "lerna run test"
   }
 }
