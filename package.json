@@ -26,7 +26,7 @@
   },
   "scripts": {
     "clean": "find . -type d -name \"node_modules\" -exec rm -rf \"{}\" \\;",
-    "deploy:pages": "lerna run build && gh-pages -d packages/apps/demo/build",
+    "deploy:pages": "lerna run prepublish && lerna run build && gh-pages -d packages/apps/demo/build",
     "publish:libs": "lerna publish --yes",
     "start": "lerna run start",
     "test:libs": "lerna run test",

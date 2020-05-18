@@ -4,7 +4,7 @@ const Octocat = () => {
   return (
     <a
       className="octocat-icon"
-      href="https://github.com/lyndonoc/react-scroll-dragger"
+      href="https://github.com/lyndonoc/react-depot/tree/master/packages/libs/react-scroll-dragger"
     >
       <svg
         aria-hidden="true"
