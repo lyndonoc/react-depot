@@ -10,18 +10,12 @@
     "react-dom": "^16.12.0",
     "react-json-editor-ajrm": "^2.5.9"
   },
-  "devDependencies": {
-    "node-sass": "^4.13.0",
-    "react-scripts": "3.4.0"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "start:demo": "react-scripts start",
-    "build": "react-scripts build",
-    "build:library": "NODE_ENV=production babel src/lib/form-contractor -d ./dist --copy-files --no-copy-ignored --delete-dir-on-start --root-mode upward",
-    "prepublish": "npm run build:library",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "watch": "npm run compile:watch",
+    "compile": "babel src -d dist --copy-files --no-copy-ignored --delete-dir-on-start --root-mode upward",
+    "compile:watch": "npm run compile -- --watch --verbose",
+    "prepublish": "NODE_ENV=production npm run compile",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"

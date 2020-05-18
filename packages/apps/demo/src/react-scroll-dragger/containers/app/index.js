@@ -1,7 +1,8 @@
+import { Helmet } from 'react-helmet';
 import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
-import DragScroll from '../../../lib/scroll-dragger';
+import DragScroll from 'react-scroll-dragger';
 import Octocat from '../../components/octocat';
 import dragItems from '../../constants/demo-data';
 
@@ -11,6 +12,10 @@ const App = () => {
 
   return (
     <div className="drag-scroll-demo__container">
+      <Helmet>
+        <link rel="icon" href={`${process.env.PUBLIC_URL}/crab-favicon.ico`}/>
+        <title>React Scroll Dragger</title>
+      </Helmet>
       <div className="drag-scroll-demo__header__wrapper">
         <div className="drag-scroll-demo__header">
           <h1 className="drag-scroll-demo__title">

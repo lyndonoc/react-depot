@@ -16,7 +16,7 @@ import FormContractor from 'react-form-contractor'
 />
 ```
 
-Check out the [live demo](https://lyndonoc.github.io/react-form-contractor/).
+Check out the [live demo](https://lyndonoc.github.io/react-depot/react-form-contractor/).
 
 ## Install
 
@@ -30,7 +30,7 @@ npm install react-form-contractor
 
 #### `componentsMap: object` (required)
 
-A map of additional components. This will be merged with the library's [default components map](https://github.com/lyndonoc/react-form-contractor/blob/master/src/lib/form-contractor/constants/defaultComponentsMap.js). You can provide additional components via `componentsMap`, and those components will be made available for form fields whose `type` value is in the components map.
+A map of additional components. This will be merged with the library's [default components map](https://github.com/lyndonoc/react-depot/blob/master/packages/libs/react-form-contractor/src/constants/defaultComponentsMap.js). You can provide additional components via `componentsMap`, and those components will be made available for form fields whose `type` value is in the components map.
 
 #### `emitChangeOnLoad: boolean`
 
@@ -48,7 +48,7 @@ Schema:
 - `fields: array of formData`: an array of `formData` to use for a given `name` field within a form, which will build a nested object structure for your form.
 - `options: array`: an array of options to be passed to form components that display multiple options to choose from. this field will be ignored if `fields` is set with a non-empty array.
 
-You can find an example form data in the [live demo](https://lyndonoc.github.io/react-form-contractor/).
+You can find an example form data in the [live demo](https://lyndonoc.github.io/react-depot/react-form-contractor/).
 
 #### `useBuiltInStyle: bool`
 

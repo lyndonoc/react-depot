@@ -1,6 +1,7 @@
 {
   "packages": [
-    "packages/libs/*"
+    "packages/libs/*",
+    "packages/apps/*"
   ],
   "command": {
     "version": {

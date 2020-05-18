@@ -1,9 +1,10 @@
+import { Helmet } from 'react-helmet';
 import JSONEditor from 'react-json-editor-ajrm';
 import React, { useState } from 'react';
 import locale from 'react-json-editor-ajrm/locale/en';
 
 import HammerIcon from '../../components/hammer';
-import FormContractor from '../../../lib/form-contractor';
+import FormContractor from 'react-form-contractor';
 import Octocat from '../../components/octocat';
 import { formData } from '../../constants/formData';
 
@@ -28,6 +29,10 @@ const App = () => {
 
   return (
     <div className="form-contractor-demo__container">
+      <Helmet>
+        <link rel="icon" href={`${process.env.PUBLIC_URL}/hammer-favicon.ico`}/>
+        <title>React Form Contractor</title>
+      </Helmet>
       <div className="form-contractor-demo__header__wrapper">
         <div className="form-contractor-demo__header">
           <HammerIcon/>

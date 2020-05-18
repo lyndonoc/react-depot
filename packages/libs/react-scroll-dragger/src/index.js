@@ -1,9 +1,3 @@
-import React from 'react';
-import { render } from 'react-dom';
+import ScrollDragger from './scroll-dragger';
 
-import App from './demo/containers/app';
-
-render(
-  <App/>,
-  document.getElementById('root'),
-);
+export default ScrollDragger;

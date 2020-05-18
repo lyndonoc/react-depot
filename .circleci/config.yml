@@ -15,6 +15,9 @@ jobs:
           paths:
             - ~/.cache/yarn
             - ./node_modules
+            - ./packages/apps/demo/node_modules
+            - ./packages/libs/react-form-contractor/node_modules
+            - ./packages/libs/react-scroll-dragger/node_modules
   test:
     docker:
       - image: circleci/node:13
@@ -48,6 +51,24 @@ jobs:
       - run:
           name: npm-publish
           command: yarn run publish:libs
+  page-deploy:
+    docker:
+      - image: circleci/node:13
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - add_ssh_keys:
+          finterprints:
+            - "86:ff:fc:16:73:4d:f9:12:31:bd:d7:6b:ac:eb:d5:e2"c
+      - run:
+          name: Configuring git
+          command: |
+            git log -1 --pretty=format:'%ae' | xargs git config --global user.email
+            git log -1 --pretty=format:'%an' | xargs git config --global user.name
+      - run:
+          name: npm-publish
+          command: yarn run deploy:pages
 workflows:
   version: 2
   run-tests:
@@ -56,6 +77,9 @@ workflows:
       - test:
           requires:
             - build
+          filters:
+            branches:
+              only: master
   run-publish:
     jobs:
       - build
@@ -65,3 +89,11 @@ workflows:
           filters:
             branches:
               only: master
+  run-page-deploy:
+    - build
+    - page-deploy:
+        requires:
+          - build
+        filters:
+          branches:
+            only: master

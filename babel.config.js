@@ -1,30 +1,31 @@
 module.exports = {
   ignore: [
-    "src/**/*.test.js",
-    "src/**/*.spec.js",
+    '**/*.test.js',
+    '**/*.spec.js',
+    'setupTests.js'
   ],
   presets: [
     [
-      "@babel/preset-env",
+      '@babel/preset-env',
       {
         modules: false
       }
     ],
-    "@babel/preset-react"
+    '@babel/preset-react'
   ],
   plugins: [
-    "@babel/proposal-class-properties",
+    '@babel/proposal-class-properties',
     [
-      "@babel/plugin-transform-runtime",
+      '@babel/plugin-transform-runtime',
       {
-        version: "7.9.6"
+        version: '7.9.6'
       }
     ],
-    [
-      "transform-react-remove-prop-types",
+    process.env.NODE_ENV === 'production' && [
+      'transform-react-remove-prop-types',
       {
         removeImport: true
       }
     ]
-  ]
+  ].filter(Boolean)
 };
