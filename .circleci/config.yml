@@ -8,11 +8,6 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: Logging in to private npm registry
-          command: |
-            npm set registry https://registry.npmjs.org
-            echo //registry.npmjs.org/:_authToken=\"${NPM_TOKEN}\" >> ~/.npmrc
-      - run:
           name: yarn-install
           command: yarn install
       - save_cache:
@@ -37,6 +32,16 @@ jobs:
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Logging in to private npm registry
+          command: |
+            npm set registry https://registry.npmjs.org
+            echo //registry.npmjs.org/:_authToken=\"${NPM_TOKEN}\" >> ~/.npmrc
+      - run:
+          name: Configuring git
+          command: |
+            git config --global user.email "lyndonoc@gmail.com"
+            git config --global user.name "lyndonoc"
       - run:
           name: npm-publish
           command: yarn run publish:libs
