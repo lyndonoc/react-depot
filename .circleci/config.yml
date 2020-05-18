@@ -90,10 +90,11 @@ workflows:
             branches:
               only: master
   run-page-deploy:
-    - build
-    - page-deploy:
-        requires:
-          - build
-        filters:
-          branches:
-            only: master
+    jobs:
+      - build
+      - page-deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
