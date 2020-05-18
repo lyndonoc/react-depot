@@ -293,6 +293,7 @@ class DragScrollContainer extends PureComponent {
     console.log({
       componentOrder,
       height,
+      height,
     });
 
     return (

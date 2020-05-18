@@ -43,8 +43,10 @@ jobs:
       - run:
           name: Configuring git
           command: |
-            git config --global user.email "${git log -1 --pretty=format:'%ae'}"
-            git config --global user.name "${git log -1 --pretty=format:'%an'}"
+            export GITUSERMAIL=`git log -1 --pretty=format:'%ae'`
+            export GITUSERNAME=`git log -1 --pretty=format:'%an'`
+            git config --global user.email "${GITUSERMAIL}"
+            git config --global user.name "${GITUSERNAME}"
       - run:
           name: npm-publish
           command: yarn run publish:libs
