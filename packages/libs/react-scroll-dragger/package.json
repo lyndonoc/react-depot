@@ -17,13 +17,13 @@
     "smoothscroll-polyfill": "^0.4.4"
   },
   "scripts": {
-    "start": "node_modules/.bin/react-scripts start",
-    "start:demo": "node_modules/.bin/react-scripts start",
-    "build": "node_modules/.bin/react-scripts build",
+    "start": "react-scripts start",
+    "start:demo": "react-scripts start",
+    "build": "react-scripts build",
     "build:library": "NODE_ENV=production babel src/lib/scroll-dragger -d ./dist --copy-files --no-copy-ignored --delete-dir-on-start --root-mode upward",
     "prepublish": "npm run build:library",
-    "test": "node_modules/.bin/react-scripts test",
-    "eject": "node_modules/.bin/react-scripts eject"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
