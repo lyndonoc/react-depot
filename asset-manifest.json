@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "https://lyndonoc.github.io/react-depot/static/css/main.a2509b0c.chunk.css",
-    "main.js": "https://lyndonoc.github.io/react-depot/static/js/main.b4aa73db.chunk.js",
-    "main.js.map": "https://lyndonoc.github.io/react-depot/static/js/main.b4aa73db.chunk.js.map",
+    "main.js": "https://lyndonoc.github.io/react-depot/static/js/main.a35026c6.chunk.js",
+    "main.js.map": "https://lyndonoc.github.io/react-depot/static/js/main.a35026c6.chunk.js.map",
     "runtime-main.js": "https://lyndonoc.github.io/react-depot/static/js/runtime-main.6ec4be4b.js",
     "runtime-main.js.map": "https://lyndonoc.github.io/react-depot/static/js/runtime-main.6ec4be4b.js.map",
-    "static/js/2.4fc2f8b7.chunk.js": "https://lyndonoc.github.io/react-depot/static/js/2.4fc2f8b7.chunk.js",
-    "static/js/2.4fc2f8b7.chunk.js.map": "https://lyndonoc.github.io/react-depot/static/js/2.4fc2f8b7.chunk.js.map",
+    "static/js/2.8e62a8c5.chunk.js": "https://lyndonoc.github.io/react-depot/static/js/2.8e62a8c5.chunk.js",
+    "static/js/2.8e62a8c5.chunk.js.map": "https://lyndonoc.github.io/react-depot/static/js/2.8e62a8c5.chunk.js.map",
     "index.html": "https://lyndonoc.github.io/react-depot/index.html",
-    "precache-manifest.fe2a7fa9773b53f829485bdc409c4c05.js": "https://lyndonoc.github.io/react-depot/precache-manifest.fe2a7fa9773b53f829485bdc409c4c05.js",
+    "precache-manifest.8ca96602b4f85b21d4c2b0bc2d069203.js": "https://lyndonoc.github.io/react-depot/precache-manifest.8ca96602b4f85b21d4c2b0bc2d069203.js",
     "service-worker.js": "https://lyndonoc.github.io/react-depot/service-worker.js",
     "static/css/main.a2509b0c.chunk.css.map": "https://lyndonoc.github.io/react-depot/static/css/main.a2509b0c.chunk.css.map",
-    "static/js/2.4fc2f8b7.chunk.js.LICENSE.txt": "https://lyndonoc.github.io/react-depot/static/js/2.4fc2f8b7.chunk.js.LICENSE.txt"
+    "static/js/2.8e62a8c5.chunk.js.LICENSE.txt": "https://lyndonoc.github.io/react-depot/static/js/2.8e62a8c5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6ec4be4b.js",
-    "static/js/2.4fc2f8b7.chunk.js",
+    "static/js/2.8e62a8c5.chunk.js",
     "static/css/main.a2509b0c.chunk.css",
-    "static/js/main.b4aa73db.chunk.js"
+    "static/js/main.a35026c6.chunk.js"
   ]
 }
