@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "https://lyndonoc.github.io/react-depot/static/css/main.a2509b0c.chunk.css",
-    "main.js": "https://lyndonoc.github.io/react-depot/static/js/main.a35026c6.chunk.js",
-    "main.js.map": "https://lyndonoc.github.io/react-depot/static/js/main.a35026c6.chunk.js.map",
+    "main.js": "https://lyndonoc.github.io/react-depot/static/js/main.09e790f7.chunk.js",
+    "main.js.map": "https://lyndonoc.github.io/react-depot/static/js/main.09e790f7.chunk.js.map",
     "runtime-main.js": "https://lyndonoc.github.io/react-depot/static/js/runtime-main.6ec4be4b.js",
     "runtime-main.js.map": "https://lyndonoc.github.io/react-depot/static/js/runtime-main.6ec4be4b.js.map",
     "static/js/2.8e62a8c5.chunk.js": "https://lyndonoc.github.io/react-depot/static/js/2.8e62a8c5.chunk.js",
     "static/js/2.8e62a8c5.chunk.js.map": "https://lyndonoc.github.io/react-depot/static/js/2.8e62a8c5.chunk.js.map",
     "index.html": "https://lyndonoc.github.io/react-depot/index.html",
-    "precache-manifest.8ca96602b4f85b21d4c2b0bc2d069203.js": "https://lyndonoc.github.io/react-depot/precache-manifest.8ca96602b4f85b21d4c2b0bc2d069203.js",
+    "precache-manifest.5b18b57756b248de76a6818f8eef6fc2.js": "https://lyndonoc.github.io/react-depot/precache-manifest.5b18b57756b248de76a6818f8eef6fc2.js",
     "service-worker.js": "https://lyndonoc.github.io/react-depot/service-worker.js",
     "static/css/main.a2509b0c.chunk.css.map": "https://lyndonoc.github.io/react-depot/static/css/main.a2509b0c.chunk.css.map",
     "static/js/2.8e62a8c5.chunk.js.LICENSE.txt": "https://lyndonoc.github.io/react-depot/static/js/2.8e62a8c5.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.6ec4be4b.js",
     "static/js/2.8e62a8c5.chunk.js",
     "static/css/main.a2509b0c.chunk.css",
-    "static/js/main.a35026c6.chunk.js"
+    "static/js/main.09e790f7.chunk.js"
   ]
 }

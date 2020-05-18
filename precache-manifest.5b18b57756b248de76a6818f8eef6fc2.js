@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "10a0c12e1056e3dda437bad294386bd4",
+    "revision": "e7bbdd0e39ef4d2ebe60adf3fb3aa82f",
     "url": "https://lyndonoc.github.io/react-depot/index.html"
   },
   {
-    "revision": "8598f01aca0d87dc0425",
+    "revision": "b512da72b3584dbcbd18",
     "url": "https://lyndonoc.github.io/react-depot/static/css/main.a2509b0c.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://lyndonoc.github.io/react-depot/static/js/2.8e62a8c5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8598f01aca0d87dc0425",
-    "url": "https://lyndonoc.github.io/react-depot/static/js/main.a35026c6.chunk.js"
+    "revision": "b512da72b3584dbcbd18",
+    "url": "https://lyndonoc.github.io/react-depot/static/js/main.09e790f7.chunk.js"
   },
   {
     "revision": "f061bd02e2ccedbd6136",
