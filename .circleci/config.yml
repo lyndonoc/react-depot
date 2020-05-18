@@ -18,6 +18,7 @@ jobs:
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
+            - ~/.cache/yarn
             - ./node_modules
   test:
     docker:
