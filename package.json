@@ -22,6 +22,7 @@
   },
   "scripts": {
     "build:libs": "lerna run build:library",
-    "test:libs": "lerna run test -- --forceExit"
+    "publish:libs": "lerna publish --yes",
+    "test:libs": "lerna run test"
   }
 }

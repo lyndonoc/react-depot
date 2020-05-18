@@ -1,0 +1,58 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:13
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Logging in to private npm registry
+          command: |
+            npm set registry https://registry.npmjs.org
+            echo //registry.npmjs.org/:_authToken=\"${NPM_TOKEN}\" >> ~/.npmrc
+      - run:
+          name: yarn-install
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+  test:
+    docker:
+      - image: circleci/node:13
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: test
+          command: yarn run test:libs
+  publish:
+    docker:
+      - image: circleci/node:13
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: npm-publish
+          command: yarn run publish:libs
+workflows:
+  version: 2
+  run-tests:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+  run-publish:
+    jobs:
+      - build
+      - publish:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
