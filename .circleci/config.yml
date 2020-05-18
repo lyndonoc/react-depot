@@ -32,6 +32,9 @@ jobs:
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
+      - add_ssh_key:
+          finterprints:
+            - "86:ff:fc:16:73:4d:f9:12:31:bd:d7:6b:ac:eb:d5:e2"
       - run:
           name: Logging in to private npm registry
           command: |
