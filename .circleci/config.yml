@@ -23,8 +23,6 @@ jobs:
           paths:
             - ~/.cache/yarn
             - ./node_modules
-  deploy-job:
-    steps:
   test:
     docker:
       - image: circleci/node:13
