@@ -286,8 +286,7 @@ class DragScrollContainer extends PureComponent {
     const {
       props: {
         componentOrder,
-        height,
-        ...rest
+        height
       },
     } = this;
     const componentMap = this.getComponentMap();
