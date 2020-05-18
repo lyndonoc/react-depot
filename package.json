@@ -22,7 +22,7 @@
   },
   "scripts": {
     "build:libs": "lerna run build:library",
-    "publish:libs": "lerna publish --yes --git-remote upstream",
+    "publish:libs": "lerna publish --yes",
     "test:libs": "lerna run test"
   }
 }
