@@ -16,7 +16,7 @@ import DragScroll from 'react-scroll-dragger'
 </DragScroll>
 ```
 
-Check out the [live demo](https://lyndonoc.github.io/react-depot/react-scroll-dragger/).
+Check out the [live demo](https://lyndonoc.github.io/react-depot/react-scroll-dragger?app=react-scroll-dragger).
 
 ## Install
 

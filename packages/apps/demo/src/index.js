@@ -1,46 +1,48 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter,
-  Redirect,
-  Route,
-  Switch,
-} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 import ReactFormContractor from './react-form-contractor/containers/app';
 import ReactScrollDragger from './react-scroll-dragger/containers/app';
 import * as serviceWorker from './serviceWorker';
 
-const routes = [
-  {
-    component: ReactFormContractor,
-    path: '/react-form-contractor',
-  },
-  {
-    component: ReactScrollDragger,
-    path: '/react-scroll-dragger',
-  },
-  {
-    component: () => <Redirect to="/react-form-contractor"/>,
-    path: '*',
-  },
-];
+const App = withRouter(({
+  location = {},
+}) => {
+  const {
+    search = '',
+  } = location
+  const _search = search.startsWith('?')
+    ? search.slice(1)
+    : search;
+  const {
+    app = 'react-form-contractor',
+  } = _search
+    .split('&')
+    .reduce(
+      (acc, curr) => {
+        const [
+          name,
+          value,
+        ] = curr.split('=');
+        return {
+          ...acc,
+          [name]: value,
+        };
+      },
+      {},
+    );
+
+  return app === 'react-form-contractor'
+    ? <ReactFormContractor/>
+    : <ReactScrollDragger/>;
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Switch>
-        {routes.map((route, routeIndex) => {
-          return (
-            <Route
-              exact
-              component={route.component}
-              key={`${route.path}+${routeIndex}`}
-              path={route.path}
-            />
-          );
-        })}
-      </Switch>
+    <BrowserRouter>
+      <App/>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
