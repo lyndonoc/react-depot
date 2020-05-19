@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.16](https://github.com/lyndonoc/react-depot/compare/react-scroll-dragger@1.0.15...react-scroll-dragger@1.0.16) (2020-05-19)
+
+**Note:** Version bump only for package react-scroll-dragger
+
+
+
+
+
 ## [1.0.15](https://github.com/lyndonoc/react-depot/compare/react-scroll-dragger@1.0.14...react-scroll-dragger@1.0.15) (2020-05-18)
 
 **Note:** Version bump only for package react-scroll-dragger
